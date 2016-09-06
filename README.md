@@ -12,16 +12,56 @@ This example also demonstrates integration with
 **To run, follow these steps:**
 
 1. Install dependencies with `npm install` in this directory (make sure it creates a local node_modules)
-2. By default, it uses the local version from `src` of react-router-redux, so you need to run `npm install` from there first. If you want to use a version straight from npm, remove the lines in `webpack.config.js` at the bottom.
-3. Start build with `npm start`
-4. Open [http://localhost:8080/](http://localhost:8080/)
+2. Start build with `npm start`
+3. Open [http://localhost:8080/](http://localhost:8080/)
 
--
+---
 
-If you want to run the example from the npm published version of
-**react-router-redux**, remove the alias in `webpack.config`
-to the source from line 21.
+**The Stack:**
+  - React: Templating/Components
+  - Redux: Data Store
+  - React Router: Application Routing
+  - Redux Thunk: Async middleware for Redux
+  - ImmutableJS
+  - ES6
 
-This example uses the latest version, switch to a specific tag to use a stable version:
+*** Unidirectional Data Fow ***
+  - 'all data in an application follows the same lifecycle pattern, making the logic of your app more predictable and easier to understand. It also encourages data normalization, so that you don't end up with multiple, independent copies of the same data that are unaware of one another.' (Redux documentation)[http://redux.js.org/docs/basics/DataFlow.html]
+  - Store
+    - All of the data
+  - Smart Component (entry point)
+    - All of the functionality required to display the component
+    - boot calls, data presenting, etc
+  - Dumb Component
+    - the displayed styles/markup infused with data/actions
+  - Action Creator
+    - Async calls
+    - Maps user actions to store actions.
 
-e.g. [react-router-redux tag 1.0.2](https://github.com/reactjs/react-router-redux/tree/1.0.2/examples/basic)
+*** Component-Oriented design ***
+  - Allows you to compose functional components with display components easily
+  - Composition over inheritance makes a more readable code base
+  - Component-Oriented design is something we already work with (activity templates)
+  - Allows tree-shaking bundles for faster/smaller page loads
+
+*** Shared State ***
+  - Tracking usage history
+    - We can replay history
+    - We 'could' optimize coach flow by extracting common usage pattern
+    - We 'could' debug easier with action/data logs
+  - Piecemeal data loading
+    - Each component only loads what it needs as it needs it
+    - Once loaded, other components can use said data
+    - If data is mutated in the store, it is updated everywhere
+
+*** Easy to test/protoype/develop ***
+  - Because the interfaces are identical
+    - Mocking each part easy.
+    - Easy to split component development between the team
+  - prototyping becomes applicable to the developer's ACTUAL implementation.
+    - Acheived by isolating Dumb Component and mocking state
+    
+*** Additional/NonImmediate Benefits ***
+  - JSX is easily readable/writable due to its html-like syntax
+  - Server-side rendering
+  - React Native makes templating parity actually realistic.

@@ -1,4 +1,4 @@
-import { INCREASE, DECREASE } from '../constants'
+import { INCREASE, DECREASE } from './action_types'
 
 export function increase(n) {
   return {

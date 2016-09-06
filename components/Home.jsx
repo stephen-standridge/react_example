@@ -2,9 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { increase, decrease } from '../actions/count'
 
-function Home({ number, increase, decrease }) {
+function Home({ number, post_count, increase, decrease }) {
   return (
     <div>
+      Post count currently:
+      {post_count}
+      <br />
+      <hr />
       Some state changes:
       {number}
       <button onClick={() => increase(1)}>Increase</button>
@@ -14,6 +18,6 @@ function Home({ number, increase, decrease }) {
 }
 
 export default connect(
-  state => ({ number: state.count.number }),
+  state => ({ number: state.count.get('number'), post_count: state.posts.get('data').size }),
   { increase, decrease }
 )(Home)

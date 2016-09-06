@@ -4,13 +4,14 @@ import DockMonitor from 'redux-devtools-dock-monitor'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 import * as reducers from './reducers'
-import { App, Home, Foo, Bar } from './components'
+import { App, Home, Foo, Bar, Posts } from './components'
+import ReduxThunk from 'redux-thunk'
 
 const reducer = combineReducers({
   ...reducers,
@@ -25,7 +26,8 @@ const DevTools = createDevTools(
 
 const store = createStore(
   reducer,
-  DevTools.instrument()
+  DevTools.instrument(),
+  applyMiddleware( ReduxThunk )
 )
 const history = syncHistoryWithStore(browserHistory, store)
 
@@ -37,6 +39,7 @@ ReactDOM.render(
           <IndexRoute component={Home}/>
           <Route path="foo" component={Foo}/>
           <Route path="bar" component={Bar}/>
+          <Route path="posts" component={Posts}/>
         </Route>
       </Router>
       <DevTools />
