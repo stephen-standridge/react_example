@@ -5,7 +5,7 @@ import { increase, decrease } from '../actions/count'
 function Home({ number, post_count, increase, decrease }) {
   return (
     <div>
-      Post count currently:
+      Visible post count currently:
       {post_count}
       <br />
       <hr />
@@ -18,6 +18,9 @@ function Home({ number, post_count, increase, decrease }) {
 }
 
 export default connect(
-  state => ({ number: state.count.get('number'), post_count: state.posts.get('data').size }),
+  state => ({
+    number: state.count.get('number'),
+    post_count: state.posts.get('data').filter((d)=> !d.get('hidden') ).size
+  }),
   { increase, decrease }
 )(Home)
