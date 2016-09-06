@@ -25,7 +25,7 @@ This example also demonstrates integration with
   - ImmutableJS
   - ES6
 
-*** Unidirectional Data Fow ***
+**Unidirectional Data Fow**
   - 'all data in an application follows the same lifecycle pattern, making the logic of your app more predictable and easier to understand. It also encourages data normalization, so that you don't end up with multiple, independent copies of the same data that are unaware of one another.' (Redux documentation)[http://redux.js.org/docs/basics/DataFlow.html]
   - Store
     - All of the data
@@ -33,18 +33,19 @@ This example also demonstrates integration with
     - All of the functionality required to display the component
     - boot calls, data presenting, etc
   - Dumb Component
-    - the displayed styles/markup infused with data/actions
+    - the displayed styles/markup 
+    - infused with data/actions
   - Action Creator
     - Async calls
     - Maps user actions to store actions.
 
-*** Component-Oriented design ***
+**Component-Oriented design**
   - Allows you to compose functional components with display components easily
   - Composition over inheritance makes a more readable code base
   - Component-Oriented design is something we already work with (activity templates)
   - Allows tree-shaking bundles for faster/smaller page loads
 
-*** Shared State ***
+**Shared State**
   - Tracking usage history
     - We can replay history
     - We 'could' optimize coach flow by extracting common usage pattern
@@ -54,14 +55,13 @@ This example also demonstrates integration with
     - Once loaded, other components can use said data
     - If data is mutated in the store, it is updated everywhere
 
-*** Easy to test/protoype/develop ***
+**Easy to test/protoype/develop**
   - Because the interfaces are identical
     - Mocking each part easy.
     - Easy to split component development between the team
-  - prototyping becomes applicable to the developer's ACTUAL implementation.
-    - Acheived by isolating Dumb Component and mocking state
+    - prototyping becomes applicable to the developer's ACTUAL implementation. (Acheived by isolating Dumb Component and mocking state )
     
-*** Additional/NonImmediate Benefits ***
+**Additional/NonImmediate Benefits**
   - JSX is easily readable/writable due to its html-like syntax
   - Server-side rendering
   - React Native makes templating parity actually realistic.
