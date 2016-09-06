@@ -1,0 +1,7 @@
+- Why Webpack?
+	- Explicit Dependencies are great
+	- Vendor bundles and global dependencies made easy.
+	- Plugins offer useful and standard interfacing with the compile process
+	- There's a loader for anything you want. [es6, jsx, scss, elm]
+	- Tree Shaking Bundles with require.ensure()
+	- Fingerprinting and cache busting with bundle/chunk hashing.
